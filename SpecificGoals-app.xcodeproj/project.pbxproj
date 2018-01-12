@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E9B4AF4A20089B270008F5B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4AF4920089B270008F5B6 /* AppDelegate.swift */; };
-		E9B4AF4C20089B280008F5B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4AF4B20089B280008F5B6 /* ViewController.swift */; };
+		E9B4AF4C20089B280008F5B6 /* GoalsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B4AF4B20089B280008F5B6 /* GoalsVC.swift */; };
 		E9B4AF4F20089B280008F5B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B4AF4D20089B280008F5B6 /* Main.storyboard */; };
 		E9B4AF5220089B280008F5B6 /* SpecificGoals_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9B4AF5020089B280008F5B6 /* SpecificGoals_app.xcdatamodeld */; };
 		E9B4AF5420089B280008F5B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9B4AF5320089B280008F5B6 /* Assets.xcassets */; };
@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		E9B4AF4620089B270008F5B6 /* SpecificGoals-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpecificGoals-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B4AF4920089B270008F5B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E9B4AF4B20089B280008F5B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E9B4AF4B20089B280008F5B6 /* GoalsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsVC.swift; sourceTree = "<group>"; };
 		E9B4AF4E20089B280008F5B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9B4AF5120089B280008F5B6 /* SpecificGoals_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpecificGoals_app.xcdatamodel; sourceTree = "<group>"; };
 		E9B4AF5320089B280008F5B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,8 +56,11 @@
 		E9B4AF4820089B270008F5B6 /* SpecificGoals-app */ = {
 			isa = PBXGroup;
 			children = (
+				E9B4AF6120089BE70008F5B6 /* Extensions */,
+				E9B4AF6020089BDA0008F5B6 /* Enums */,
+				E9B4AF5F20089BD20008F5B6 /* View */,
+				E9B4AF5E20089BC50008F5B6 /* Controller */,
 				E9B4AF4920089B270008F5B6 /* AppDelegate.swift */,
-				E9B4AF4B20089B280008F5B6 /* ViewController.swift */,
 				E9B4AF4D20089B280008F5B6 /* Main.storyboard */,
 				E9B4AF5320089B280008F5B6 /* Assets.xcassets */,
 				E9B4AF5520089B280008F5B6 /* LaunchScreen.storyboard */,
@@ -65,6 +68,35 @@
 				E9B4AF5020089B280008F5B6 /* SpecificGoals_app.xcdatamodeld */,
 			);
 			path = "SpecificGoals-app";
+			sourceTree = "<group>";
+		};
+		E9B4AF5E20089BC50008F5B6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E9B4AF4B20089B280008F5B6 /* GoalsVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E9B4AF5F20089BD20008F5B6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9B4AF6020089BDA0008F5B6 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		E9B4AF6120089BE70008F5B6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9B4AF4C20089B280008F5B6 /* ViewController.swift in Sources */,
+				E9B4AF4C20089B280008F5B6 /* GoalsVC.swift in Sources */,
 				E9B4AF4A20089B270008F5B6 /* AppDelegate.swift in Sources */,
 				E9B4AF5220089B280008F5B6 /* SpecificGoals_app.xcdatamodeld in Sources */,
 			);
@@ -279,6 +311,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B7MXP2FS7S;
 				INFOPLIST_FILE = "SpecificGoals-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "RD.SpecificGoals-app";
@@ -293,6 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B7MXP2FS7S;
 				INFOPLIST_FILE = "SpecificGoals-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "RD.SpecificGoals-app";
