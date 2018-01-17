@@ -9,19 +9,22 @@
 import UIKit
 
 class CreateGoalVC: UIViewController {
-
-    
+    //Outlets
     @IBOutlet weak var goalTxtView: UITextView!
     @IBOutlet weak var shortTermBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var longTermBtn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     @IBAction func longTermPressed(_ sender: Any) {
+        
     }
     @IBAction func shortTermBtnPressed(_ sender: Any) {
+        
     }
     
     @IBAction func backBtnWasPressed(_ sender: Any) {
@@ -30,6 +33,7 @@ class CreateGoalVC: UIViewController {
     
     
     @IBAction func nextBtnWasPressed(_ sender: Any) {
+        
     }
     
     

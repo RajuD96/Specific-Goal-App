@@ -253,7 +253,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="buN-lF-wah">
                                         <rect key="frame" x="0.0" y="250" width="345" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lI9-1c-d6v">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lI9-1c-d6v" customClass="RoundedButton" customModule="SpecificGoals_app" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="162.66666666666666" height="50"/>
                                                 <color key="backgroundColor" red="0.33951822920000002" green="0.76022677949999995" blue="1" alpha="0.87285958900000005" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -263,11 +263,16 @@
                                                 <state key="normal" title="Short Term">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="shortTermBtnPressed:" destination="b30-jt-hTs" eventType="touchUpInside" id="Di0-Jp-Llv"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnG-EO-RRD">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnG-EO-RRD" customClass="RoundedButton" customModule="SpecificGoals_app" customModuleProvider="target">
                                                 <rect key="frame" x="182.66666666666663" y="0.0" width="162.33333333333337" height="50"/>
                                                 <color key="backgroundColor" red="0.82537267720379548" green="0.94310655905301199" blue="0.97647058823529409" alpha="0.87" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
@@ -277,6 +282,11 @@
                                                 <state key="normal" title="Long Term">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="longTermPressed:" destination="b30-jt-hTs" eventType="touchUpInside" id="j41-6X-ye8"/>
                                                 </connections>

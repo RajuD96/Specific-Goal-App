@@ -9,7 +9,7 @@
 import UIKit
 
 class GoalCell: UITableViewCell {
-
+    //Outlets
     @IBOutlet weak var goalDescLbl: UILabel!
     @IBOutlet weak var goalTypeLbl: UILabel!
     @IBOutlet weak var progessLbl: UILabel!

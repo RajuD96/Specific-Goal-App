@@ -10,7 +10,9 @@ import UIKit
 
 class GoalsVC: UIViewController {
 
+    //Outlets
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
