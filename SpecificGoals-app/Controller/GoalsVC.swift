@@ -9,31 +9,30 @@
 import UIKit
 import CoreData
 
-
 let appDelegate = UIApplication.shared.delegate as? AppDelegate
-
-
-
-
 class GoalsVC: UIViewController {
-
+    
     //Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var showUndoView: UIView!
+    @IBOutlet weak var undoBtn: UIButton!
+    
     var goals:[Goal] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isHidden = false
-      
-    
+        showUndoView.alpha = 0.0
+        undoBtn.isHidden = true
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       fetchCoreDataObject()
+        fetchCoreDataObject()
         tableView.reloadData()
     }
-
+    
     func fetchCoreDataObject () {
         self.fetch { (complete) in
             if complete {
@@ -44,15 +43,24 @@ class GoalsVC: UIViewController {
                 }
             }
         }
-    
     }
     
     @IBAction func addGoalBtnPressed(_ sender: Any) {
         guard let createGoalVC = storyboard?.instantiateViewController(withIdentifier: "CreateGoalVC") else {return}
         presentDetails(createGoalVC)
-       
+        
     }
     
+    @IBAction func undoBtnWasPressed(_ sender: Any) {
+        showUndoView.alpha = 0.0
+        guard let contextManager =
+            appDelegate?.persistentContainer.viewContext else { return }
+        contextManager.undoManager?.undo()
+        fetchCoreDataObject()
+        tableView.reloadData()
+        
+        print("Btn was pressed")
+    }
 }
 
 extension GoalsVC:UITableViewDelegate,UITableViewDataSource {
@@ -66,11 +74,9 @@ extension GoalsVC:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "goalCell") as? GoalCell else {return UITableViewCell() }
         let goal = goals[indexPath.row]
-        
-       cell.configureCell(goal: goal)
+        cell.configureCell(goal: goal)
         return cell
     }
-    
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -85,8 +91,6 @@ extension GoalsVC:UITableViewDelegate,UITableViewDataSource {
             self.removeGoal(atIndexPath: indexPath)
             self.fetchCoreDataObject()
             tableView.deleteRows(at: [indexPath], with: .automatic)
-            
-           
         }
         
         let addAction = UITableViewRowAction(style: .normal, title: "ADD 1") { (rowAction, indexpath) in
@@ -98,10 +102,6 @@ extension GoalsVC:UITableViewDelegate,UITableViewDataSource {
         
         return [deleteAction,addAction]
     }
-    
-    
-    
-    
 }
 
 extension GoalsVC {
@@ -119,21 +119,20 @@ extension GoalsVC {
         }
     }
     
-    
     func removeGoal(atIndexPath indexPath:IndexPath){
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        managedContext.undoManager = UndoManager()
         managedContext.delete(goals[indexPath.row])
-        
-        
         do {
-           try managedContext.save()
-            
+            try managedContext.save()
+            undoBtn.isHidden = false
+            fadeInView(view: showUndoView)
+            fadeOutView(view: showUndoView)
         }catch{
             debugPrint("\(error.localizedDescription)")
         }
         
     }
-    
     
     func setProgress(atIndexPath indexPath:IndexPath) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
@@ -151,15 +150,18 @@ extension GoalsVC {
         }catch{
             debugPrint("\(error)")
         }
-        
-        
-        
-        
-        
     }
     
-    
-    
-    
-    
+    func fadeOutView(view: UIView) {
+        UIView.animate(withDuration: 1.0, delay: 1.5, options: .curveEaseOut, animations: {
+            view.alpha = 0.0
+        }, completion: { (true) in
+            self.undoBtn.isHidden = true
+        })
+    }
+    func fadeInView(view: UIView) {
+        UIView.animate(withDuration: 3.0) {
+            view.alpha = 1.0
+        }
+    }
 }

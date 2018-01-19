@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 extension UIViewController {
     
     func presentDetails(_ viewContollertoPresent:UIViewController){
@@ -19,7 +18,6 @@ extension UIViewController {
         self.view.window?.layer.add(transition, forKey: kCATransition)
         present(viewContollertoPresent, animated: false, completion: nil)
     }
-    
     func presentSecondaryDetail(_ viewControllerToPresent: UIViewController) {
         let transition = CATransition()
         transition.duration = 0.3
@@ -33,11 +31,7 @@ extension UIViewController {
             self.present(viewControllerToPresent, animated: false, completion: nil)
         }
     }
-    
-
-    
     func dismissDetails(){
-        
         let transition = CATransition()
         transition.duration = 0.3
         transition.type = kCATransitionPush
@@ -46,6 +40,4 @@ extension UIViewController {
         dismiss(animated: false, completion: nil)
         
     }
-    
-    
 }

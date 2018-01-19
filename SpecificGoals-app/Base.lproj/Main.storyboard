@@ -17,6 +17,7 @@
             <string>Avenir-Medium</string>
         </array>
         <array key="AvenirNext.ttc">
+            <string>AvenirNext-DemiBold</string>
             <string>AvenirNext-Medium</string>
         </array>
     </customFonts>
@@ -89,7 +90,7 @@
                                 </subviews>
                                 <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
                             </stackView>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EAc-Le-Cfg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EAc-Le-Cfg">
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -196,23 +197,56 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="005-1y-WLW">
+                                <rect key="frame" x="0.0" y="725" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal Removed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgW-2J-oJZ">
+                                        <rect key="frame" x="18" y="11.999999999999998" width="136.66666666666666" height="27.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="RgW-2J-oJZ" firstAttribute="leading" secondItem="005-1y-WLW" secondAttribute="leadingMargin" constant="10" id="Bm2-zc-MtF"/>
+                                    <constraint firstAttribute="height" constant="50" id="Wxo-k3-A7M"/>
+                                    <constraint firstItem="RgW-2J-oJZ" firstAttribute="centerY" secondItem="005-1y-WLW" secondAttribute="centerY" id="r2I-mQ-MYI"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEW-UG-Bh0">
+                                <rect key="frame" x="295" y="730" width="69" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
+                                <state key="normal" title="UNDO">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="undoBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QSS-Z4-eG7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="EAc-Le-Cfg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="A1a-6j-HNp"/>
                             <constraint firstItem="nLK-Vu-bbs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BjJ-yA-rmB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="005-1y-WLW" secondAttribute="bottom" constant="3" id="ESR-ZE-FA6"/>
                             <constraint firstItem="0eW-2s-vsa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JvA-9o-G7V"/>
                             <constraint firstItem="EAc-Le-Cfg" firstAttribute="top" secondItem="nLK-Vu-bbs" secondAttribute="bottom" id="K0I-r7-mwy"/>
                             <constraint firstItem="EAc-Le-Cfg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UZU-b9-QdM"/>
+                            <constraint firstItem="005-1y-WLW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ivT-7A-Hen"/>
                             <constraint firstAttribute="bottom" secondItem="EAc-Le-Cfg" secondAttribute="bottom" id="k1z-bH-Dah"/>
                             <constraint firstItem="nLK-Vu-bbs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="n1e-b0-Zp5"/>
+                            <constraint firstItem="005-1y-WLW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oTT-br-vkh"/>
                             <constraint firstItem="0eW-2s-vsa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-150" id="p2V-Dc-TFN"/>
                             <constraint firstItem="nLK-Vu-bbs" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="yQi-ug-7fm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="showUndoView" destination="005-1y-WLW" id="9sZ-37-NSu"/>
                         <outlet property="tableView" destination="EAc-Le-Cfg" id="IeY-sO-vlJ"/>
+                        <outlet property="undoBtn" destination="tEW-UG-Bh0" id="E8c-bT-p9H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -25,12 +25,11 @@ class CreateGoalVC: UIViewController,UITextViewDelegate {
         longTermBtn.deSelectedColor()
         goalTxtView.delegate = self
     }
-
+    
     @IBAction func longTermPressed(_ sender: Any) {
         goalType = .LongTerm
         longTermBtn.selectedColor()
         shortTermBtn.deSelectedColor()
-        
     }
     @IBAction func shortTermBtnPressed(_ sender: Any) {
         goalType = .ShortTerm
@@ -39,9 +38,8 @@ class CreateGoalVC: UIViewController,UITextViewDelegate {
     }
     
     @IBAction func backBtnWasPressed(_ sender: Any) {
-      dismissDetails()
+        dismissDetails()
     }
-    
     
     @IBAction func nextBtnWasPressed(_ sender: Any) {
         
@@ -56,9 +54,4 @@ class CreateGoalVC: UIViewController,UITextViewDelegate {
         goalTxtView.text = ""
         goalTxtView.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
-    
-    
-    
-    
-
 }

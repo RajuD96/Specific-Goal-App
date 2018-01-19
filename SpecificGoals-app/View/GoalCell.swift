@@ -13,8 +13,8 @@ class GoalCell: UITableViewCell {
     @IBOutlet weak var goalDescLbl: UILabel!
     @IBOutlet weak var goalTypeLbl: UILabel!
     @IBOutlet weak var progessLbl: UILabel!
-    
     @IBOutlet weak var completionView: UIView!
+    
     func configureCell(goal:Goal){
         self.goalDescLbl.text = goal.goalDescription
         self.goalTypeLbl.text = goal.goalType
