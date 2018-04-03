@@ -21,11 +21,13 @@ class GoalsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showUndoView.addSubview(undoBtn)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isHidden = false
         showUndoView.alpha = 0.0
         undoBtn.isHidden = true
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -44,6 +46,7 @@ class GoalsVC: UIViewController {
             }
         }
     }
+    
     
     @IBAction func addGoalBtnPressed(_ sender: Any) {
         guard let createGoalVC = storyboard?.instantiateViewController(withIdentifier: "CreateGoalVC") else {return}
@@ -100,7 +103,18 @@ extension GoalsVC:UITableViewDelegate,UITableViewDataSource {
         deleteAction.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         addAction.backgroundColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
         
-        return [deleteAction,addAction]
+        let goal = goals[indexPath.row]
+        
+        if goal.goalProgress == goal.goalCompletionValue {
+            
+            return [deleteAction]
+            
+        } else {
+            
+            return [deleteAction, addAction]
+            
+        }
+//        return [deleteAction,addAction]
     }
 }
 
